@@ -164,6 +164,13 @@ public class Auto extends LinearOpMode {
         sleep(duration);
         robot.intake.setPower(0);
     }
+    
+    public void feed_and_move(int direction) {
+        robot.intake.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        robot.intake.setPower(direction);
+        drive(500,500,500,500,0.4,1000);
+        robot.intake.setPower(0);
+    }
 
     public void displayTelemetry() {
         telemetry.addLine("Drive Encoder ticks")
